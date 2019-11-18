@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 import pickle
+import numpy as np
 
 # %%
 NAME = "Kannada-Mnist"
@@ -38,6 +39,11 @@ model.compile(
 model.fit(X, Y, batch_size=40, validation_split=0.1, epochs=10)
 
 # %%
+model.save("{}.model".format(NAME))
 
+# %%
+num = 56
+prediction = model.predict(np.asarray([X[num]/255.0]))
+print(np.argmax(prediction), np.argmax(Y[num]))
 
 # %%
