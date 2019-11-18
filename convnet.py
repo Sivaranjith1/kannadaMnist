@@ -38,3 +38,6 @@ model.compile(
 model.fit(X, Y, batch_size=40, validation_split=0.1, epochs=10)
 
 # %%
+
+
+# %%
