@@ -42,6 +42,8 @@ model.fit(X, Y, batch_size=40, validation_split=0.1, epochs=10)
 model.save("{}.model".format(NAME))
 
 # %%
+model = tf.keras.models.load_model('Kannada-Mnist.model')
+# %%
 num = 56
 prediction = model.predict(np.asarray([X[num]/255.0]))
 print(np.argmax(prediction), np.argmax(Y[num]))
